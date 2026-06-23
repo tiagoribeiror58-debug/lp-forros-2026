@@ -16,27 +16,7 @@ const appState = {
   currentFilter: 'all'
 };
 
-// 3. Imagens do Portfólio (Mapeadas da pasta local)
-// Usando encodeURI para lidar com espaços no nome dos arquivos
-const portfolioImages = [
-  { file: 'projeto-1.jpeg', category: 'pvc', title: 'Forro PVC' },
-  { file: 'projeto-2.jpeg', category: 'gesso', title: 'Gesso Acartonado' },
-  { file: 'projeto-3.jpeg', category: 'madeira', title: 'Amadeirado' },
-  { file: 'projeto-4.jpeg', category: 'gesso', title: 'Sanca Iluminada' },
-  { file: 'projeto-5.jpeg', category: 'pvc', title: 'PVC Premium' },
-  { file: 'projeto-6.jpeg', category: 'madeira', title: 'Estilo Rústico' },
-  { file: 'projeto-7.jpeg', category: 'gesso', title: 'Gesso Liso' },
-  { file: 'projeto-8.jpeg', category: 'pvc', title: 'PVC Claro' },
-  { file: 'projeto-9.jpeg', category: 'gesso', title: 'Iluminação Indireta' },
-  { file: 'projeto-10.jpeg', category: 'madeira', title: 'Painel Teto' },
-  { file: 'projeto-11.jpeg', category: 'pvc', title: 'Área Externa' },
-  { file: 'projeto-12.jpeg', category: 'gesso', title: 'Quarto Moderno' },
-  { file: 'projeto-13.jpeg', category: 'madeira', title: 'Madeira Natural' },
-  { file: 'projeto-14.jpeg', category: 'pvc', title: 'Banheiro Premium' },
-  { file: 'projeto-15.jpeg', category: 'gesso', title: 'Sala de Estar' },
-  { file: 'projeto-16.jpeg', category: 'pvc', title: 'Garagem' },
-  { file: 'projeto-17.jpeg', category: 'gesso', title: 'Acabamento Fino' }
-];
+
 
 document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
@@ -89,56 +69,31 @@ function initHeaderScroll() {
 /**
  * Galeria de Portfólio Dinâmica
  */
+
 function initGallery() {
-  const container = document.getElementById('gallery-container');
   const filterBtns = document.querySelectorAll('.filter-btn');
+  const items = document.querySelectorAll('.portfolio-item');
 
-  // Renderizar itens
-  const renderItems = (filter) => {
-    container.innerHTML = '';
-    
-    const filteredImages = filter === 'all' 
-      ? portfolioImages 
-      : portfolioImages.filter(img => img.category === filter);
-
-    filteredImages.forEach(img => {
-      // Cria a estrutura do item da galeria
-      const item = document.createElement('div');
-      item.className = 'portfolio-item reveal active'; // Já renderiza ativo para não piscar
-      
-      const imgPath = `/Imagens-tetos/${img.file}`;
-      
-      item.innerHTML = `
-        <img src="${imgPath}" alt="${img.title}" loading="lazy">
-        <div class="portfolio-info">
-          <div class="portfolio-title">${img.title}</div>
-          <div class="portfolio-tag">${img.category.toUpperCase()}</div>
-        </div>
-      `;
-      
-      // Clique abre o lightbox
-      item.addEventListener('click', () => openLightbox(imgPath));
-      
-      container.appendChild(item);
-    });
-  };
-
-  // Setup dos botões de filtro
   filterBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       // Atualiza classe active
       filterBtns.forEach(b => b.classList.remove('active'));
       e.target.classList.add('active');
       
-      // Filtra e renderiza
-      appState.currentFilter = e.target.dataset.filter;
-      renderItems(appState.currentFilter);
+      const filter = e.target.dataset.filter;
+      appState.currentFilter = filter;
+      
+      items.forEach(item => {
+        if (filter === 'all' || item.dataset.category === filter) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
     });
   });
-
-  // Render inicial
-  renderItems('all');
 }
+
 
 /**
  * Lightbox (Modal de visualização de imagem)
