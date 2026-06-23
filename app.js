@@ -19,23 +19,23 @@ const appState = {
 // 3. Imagens do Portfólio (Mapeadas da pasta local)
 // Usando encodeURI para lidar com espaços no nome dos arquivos
 const portfolioImages = [
-  { file: 'WhatsApp Image 2026-06-17 at 18.27.19 (1).jpeg', category: 'pvc', title: 'Forro PVC' },
-  { file: 'WhatsApp Image 2026-06-17 at 18.27.19.jpeg', category: 'gesso', title: 'Gesso Acartonado' },
-  { file: 'WhatsApp Image 2026-06-17 at 18.27.20 (1).jpeg', category: 'madeira', title: 'Amadeirado' },
-  { file: 'WhatsApp Image 2026-06-17 at 18.27.20 (2).jpeg', category: 'gesso', title: 'Sanca Iluminada' },
-  { file: 'WhatsApp Image 2026-06-17 at 18.27.20 (3).jpeg', category: 'pvc', title: 'PVC Premium' },
-  { file: 'WhatsApp Image 2026-06-17 at 18.27.20.jpeg', category: 'madeira', title: 'Estilo Rústico' },
-  { file: 'WhatsApp Image 2026-06-17 at 18.27.21.jpeg', category: 'gesso', title: 'Gesso Liso' },
-  { file: 'WhatsApp Image 2026-06-17 at 18.31.14 (1).jpeg', category: 'pvc', title: 'PVC Claro' },
-  { file: 'WhatsApp Image 2026-06-17 at 18.31.14 (2).jpeg', category: 'gesso', title: 'Iluminação Indireta' },
-  { file: 'WhatsApp Image 2026-06-17 at 18.31.14.jpeg', category: 'madeira', title: 'Painel Teto' },
-  { file: 'WhatsApp Image 2026-06-17 at 19.51.23 (1).jpeg', category: 'pvc', title: 'Área Externa' },
-  { file: 'WhatsApp Image 2026-06-17 at 19.51.23.jpeg', category: 'gesso', title: 'Quarto Moderno' },
-  { file: 'WhatsApp Image 2026-06-17 at 19.51.24 (1).jpeg', category: 'madeira', title: 'Madeira Natural' },
-  { file: 'WhatsApp Image 2026-06-17 at 19.51.24 (2).jpeg', category: 'pvc', title: 'Banheiro Premium' },
-  { file: 'WhatsApp Image 2026-06-17 at 19.51.24 (3).jpeg', category: 'gesso', title: 'Sala de Estar' },
-  { file: 'WhatsApp Image 2026-06-17 at 19.51.24.jpeg', category: 'pvc', title: 'Garagem' },
-  { file: 'WhatsApp Image 2026-06-17 at 19.51.26.jpeg', category: 'gesso', title: 'Acabamento Fino' }
+  { file: 'projeto-1.jpeg', category: 'pvc', title: 'Forro PVC' },
+  { file: 'projeto-2.jpeg', category: 'gesso', title: 'Gesso Acartonado' },
+  { file: 'projeto-3.jpeg', category: 'madeira', title: 'Amadeirado' },
+  { file: 'projeto-4.jpeg', category: 'gesso', title: 'Sanca Iluminada' },
+  { file: 'projeto-5.jpeg', category: 'pvc', title: 'PVC Premium' },
+  { file: 'projeto-6.jpeg', category: 'madeira', title: 'Estilo Rústico' },
+  { file: 'projeto-7.jpeg', category: 'gesso', title: 'Gesso Liso' },
+  { file: 'projeto-8.jpeg', category: 'pvc', title: 'PVC Claro' },
+  { file: 'projeto-9.jpeg', category: 'gesso', title: 'Iluminação Indireta' },
+  { file: 'projeto-10.jpeg', category: 'madeira', title: 'Painel Teto' },
+  { file: 'projeto-11.jpeg', category: 'pvc', title: 'Área Externa' },
+  { file: 'projeto-12.jpeg', category: 'gesso', title: 'Quarto Moderno' },
+  { file: 'projeto-13.jpeg', category: 'madeira', title: 'Madeira Natural' },
+  { file: 'projeto-14.jpeg', category: 'pvc', title: 'Banheiro Premium' },
+  { file: 'projeto-15.jpeg', category: 'gesso', title: 'Sala de Estar' },
+  { file: 'projeto-16.jpeg', category: 'pvc', title: 'Garagem' },
+  { file: 'projeto-17.jpeg', category: 'gesso', title: 'Acabamento Fino' }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -106,7 +106,7 @@ function initGallery() {
       const item = document.createElement('div');
       item.className = 'portfolio-item reveal active'; // Já renderiza ativo para não piscar
       
-      const imgPath = `/Imagens-tetos/${encodeURI(img.file)}`;
+      const imgPath = `/Imagens-tetos/${img.file}`;
       
       item.innerHTML = `
         <img src="${imgPath}" alt="${img.title}" loading="lazy">
