@@ -1,5 +1,5 @@
 /**
- * LuxeForros - Scripts Principais
+ * MP Forros - Scripts Principais
  * Design System B2C focado em usabilidade e performance.
  */
 
@@ -8,7 +8,7 @@ const CONFIG = {
   // Número do WhatsApp (Substitua pelo número real do cliente)
   whatsappNumber: '5511999999999', 
   // Mensagem padrão do WhatsApp
-  whatsappGreeting: 'Olá, LuxeForros! Vim pelo site e gostaria de um orçamento.'
+  whatsappGreeting: 'Olá, MP Forros! Vim pelo site e gostaria de um orçamento.'
 };
 
 // 2. Estado do Aplicativo
@@ -183,6 +183,7 @@ function initCalculator() {
   // Configuração dos Labels customizados de Radio
   const setupRadioGroups = (containerId) => {
     const container = document.getElementById(containerId);
+    if (!container) return;
     const options = container.querySelectorAll('.calc-option');
     
     options.forEach(option => {
@@ -191,6 +192,9 @@ function initCalculator() {
         options.forEach(opt => opt.classList.remove('selected'));
         // Adiciona ao atual
         option.classList.add('selected');
+        // Marca o input interno como checked (importante caso o label não dispare o input sozinho)
+        const input = option.querySelector('input[type="radio"]');
+        if (input) input.checked = true;
       });
     });
   };
@@ -198,34 +202,61 @@ function initCalculator() {
   setupRadioGroups('mat-options');
   setupRadioGroups('room-options');
 
-  // Slider de Metragem
+  // Slider de Metragem e Opção "Não sei"
   const slider = document.getElementById('size-slider');
   const sizeDisplay = document.getElementById('size-display');
+  const sizeUnknown = document.getElementById('size-unknown');
+  const sizeWrapper = document.getElementById('size-wrapper');
   
-  slider.addEventListener('input', (e) => {
-    sizeDisplay.textContent = e.target.value;
-  });
+  if (slider && sizeDisplay) {
+    slider.addEventListener('input', (e) => {
+      sizeDisplay.textContent = e.target.value;
+      // Se mexer no slider, desmarca o "não sei"
+      if (sizeUnknown) {
+        sizeUnknown.checked = false;
+        sizeWrapper.style.opacity = '1';
+      }
+    });
+  }
+
+  if (sizeUnknown && sizeWrapper) {
+    sizeUnknown.addEventListener('change', (e) => {
+      if(e.target.checked) {
+        sizeWrapper.style.opacity = '0.4';
+        sizeWrapper.style.pointerEvents = 'none'; // Desabilita interação
+      } else {
+        sizeWrapper.style.opacity = '1';
+        sizeWrapper.style.pointerEvents = 'auto';
+      }
+    });
+  }
 
   // Botão Enviar WhatsApp
   const btnSend = document.getElementById('btn-send-whatsapp');
-  btnSend.addEventListener('click', () => {
-    const material = document.querySelector('input[name="material"]:checked').value;
-    const room = document.querySelector('input[name="room"]:checked').value;
-    const size = slider.value;
+  if (btnSend) {
+    btnSend.addEventListener('click', () => {
+      const materialEl = document.querySelector('input[name="material"]:checked');
+      const roomEl = document.querySelector('input[name="room"]:checked');
+      const isSizeUnknown = sizeUnknown ? sizeUnknown.checked : false;
 
-    const message = `${CONFIG.whatsappGreeting}
+      const material = materialEl ? materialEl.value : 'Não definido';
+      const room = roomEl ? roomEl.value : 'Ainda não definido';
+      const size = isSizeUnknown ? 'Não sei informar' : `${slider.value} m²`;
+
+      const message = `${CONFIG.whatsappGreeting}
 
 *Detalhes do meu projeto:*
 - *Acabamento:* ${material}
 - *Ambiente:* ${room}
-- *Tamanho:* Aproximadamente ${size} m²
+- *Tamanho:* ${size}
 
 Poderiam me passar uma estimativa de valor ou agendar uma visita?`;
 
-    const encodedMessage = encodeURIComponent(message);
-    const waUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodedMessage}`;
-    
-    // Abre a URL em uma nova aba
-    window.open(waUrl, '_blank');
-  });
+      const encodedMessage = encodeURIComponent(message);
+      const waUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodedMessage}`;
+      
+      // Abre a URL em uma nova aba
+      window.open(waUrl, '_blank');
+    });
+  }
 }

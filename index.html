@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Luxe Forros | Tetos e Acabamentos Premium</title>
+  <title>MP Forros | Tetos e Acabamentos Premium</title>
   <meta name="description" content="Transforme seu lar com forros de alta qualidade. Acabamento impecável, instalação rápida e sem sujeira para o seu conforto.">
   <link rel="stylesheet" href="index.css">
 </head>
@@ -13,8 +13,8 @@
   <header id="main-header">
     <div class="container">
       <div class="logo">
-        <div class="logo-dot"></div>
-        <span>LuxeForros</span>
+        <img src="logo.png" alt="MP Forros Logo" style="height: 36px; width: auto; object-fit: contain; margin-right: 8px; border-radius: 4px;">
+        <span>MP Forros</span>
       </div>
       <nav>
         <ul>
@@ -143,10 +143,16 @@
 
         <!-- Step 2: Size -->
         <div class="calc-step">
-          <div class="calc-step-title">
-            <span class="calc-step-number">2</span> Tamanho Aproximado
+          <div class="calc-step-title" style="display: flex; align-items: center; justify-content: space-between;">
+            <div><span class="calc-step-number">2</span> Tamanho Aproximado</div>
+            <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-light);">(Opcional)</span>
           </div>
-          <div class="calc-range-wrapper">
+          <div style="margin-bottom: 12px;">
+            <label style="font-size: 0.85rem; display: flex; align-items: center; gap: 8px; cursor: pointer; color: var(--text-medium);">
+              <input type="checkbox" id="size-unknown"> Não sei a metragem exata
+            </label>
+          </div>
+          <div class="calc-range-wrapper" id="size-wrapper">
             <div class="calc-range-value"><span id="size-display">20</span> m²</div>
             <input type="range" id="size-slider" class="calc-slider" min="5" max="150" value="20" step="5">
           </div>
@@ -154,12 +160,13 @@
 
         <!-- Step 3: Type of room -->
         <div class="calc-step">
-          <div class="calc-step-title">
-            <span class="calc-step-number">3</span> Qual é o ambiente?
+          <div class="calc-step-title" style="display: flex; align-items: center; justify-content: space-between;">
+            <div><span class="calc-step-number">3</span> Qual é o ambiente?</div>
+            <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-light);">(Opcional)</span>
           </div>
           <div class="calc-options-grid" id="room-options">
-            <label class="calc-option selected">
-              <input type="radio" name="room" value="Sala de Estar/Jantar" checked>
+            <label class="calc-option">
+              <input type="radio" name="room" value="Sala de Estar/Jantar">
               <div class="calc-option-title">Sala</div>
             </label>
             <label class="calc-option">
@@ -220,8 +227,8 @@
       <div class="footer-content reveal">
         <div class="footer-brand">
           <div class="logo">
-            <div class="logo-dot"></div>
-            <span>LuxeForros</span>
+            <img src="logo.png" alt="MP Forros Logo" style="height: 36px; width: auto; object-fit: contain; margin-right: 8px; border-radius: 4px;">
+            <span>MP Forros</span>
           </div>
           <p>Elevamos o padrão da construção civil com tetos e acabamentos de altíssima qualidade, focados no detalhe e na satisfação total do cliente.</p>
         </div>
@@ -237,14 +244,13 @@
           <div class="footer-links-title">Contato</div>
           <ul class="footer-links">
             <li>WhatsApp: (11) 99999-9999</li> <!-- PLACEHOLDER -->
-            <li>contato@luxeforros.com.br</li>
+            <li>contato@mpforros.com.br</li>
             <li>Atendimento em toda a Região</li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom reveal">
-        <div>&copy; 2026 LuxeForros. Todos os direitos reservados.</div>
-        <div>Design System Minimalista</div>
+        <div>&copy; 2026 MP Forros. Todos os direitos reservados.</div>
       </div>
     </div>
   </footer>
@@ -257,6 +263,6 @@
     </div>
   </div>
 
-  <script src="app.js"></script>
+  <script type="module" src="app.js"></script>
 </body>
 </html>
