@@ -106,7 +106,7 @@ function initGallery() {
       const item = document.createElement('div');
       item.className = 'portfolio-item reveal active'; // Já renderiza ativo para não piscar
       
-      const imgPath = `Imagens-tetos/${encodeURI(img.file)}`;
+      const imgPath = `/Imagens-tetos/${encodeURI(img.file)}`;
       
       item.innerHTML = `
         <img src="${imgPath}" alt="${img.title}" loading="lazy">
