@@ -204,6 +204,11 @@
               <div class="calc-option-desc">Preciso de algo único ou consultoria especializada.</div>
             </label>
           </div>
+          
+          <div class="calc-custom-details" id="custom-details-wrapper" style="display: none;">
+            <label for="custom-details-input">Conta pra gente, qual a sua ideia ou necessidade?</label>
+            <textarea id="custom-details-input" rows="2" placeholder="Ex: Quero sanca invertida com LED, ou preciso de isolamento acústico forte..."></textarea>
+          </div>
         </div>
 
         <!-- Step 2: Size -->
@@ -212,9 +217,11 @@
             <div><span class="calc-step-number">2</span> Tamanho Aproximado</div>
             <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-light);">(Opcional)</span>
           </div>
-          <div style="margin-bottom: 12px;">
-            <label style="font-size: 0.85rem; display: flex; align-items: center; gap: 8px; cursor: pointer; color: var(--text-medium);">
-              <input type="checkbox" id="size-unknown"> Não sei a metragem exata
+          <div style="margin-bottom: 20px;">
+            <label class="calc-checkbox-btn">
+              <input type="checkbox" id="size-unknown"> 
+              <span class="checkbox-box"></span>
+              Não sei a metragem / Preciso de ajuda para medir
             </label>
           </div>
           <div class="calc-range-wrapper" id="size-wrapper">
@@ -239,12 +246,28 @@
               <div class="calc-option-title">Quarto</div>
             </label>
             <label class="calc-option">
-              <input type="radio" name="room" value="Área Externa/Garagem">
+              <input type="radio" name="room" value="Cozinha">
+              <div class="calc-option-title">Cozinha</div>
+            </label>
+            <label class="calc-option">
+              <input type="radio" name="room" value="Banheiro">
+              <div class="calc-option-title">Banheiro</div>
+            </label>
+            <label class="calc-option">
+              <input type="radio" name="room" value="Área Externa">
               <div class="calc-option-title">Área Externa</div>
+            </label>
+            <label class="calc-option">
+              <input type="radio" name="room" value="Garagem">
+              <div class="calc-option-title">Garagem</div>
             </label>
             <label class="calc-option">
               <input type="radio" name="room" value="Comercial">
               <div class="calc-option-title">Comercial</div>
+            </label>
+            <label class="calc-option">
+              <input type="radio" name="room" value="Casa toda / Outro">
+              <div class="calc-option-title">Outro</div>
             </label>
           </div>
         </div>

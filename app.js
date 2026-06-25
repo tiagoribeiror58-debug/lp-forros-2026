@@ -226,13 +226,31 @@ function initCalculator() {
         option.classList.add('selected');
         // Marca o input interno como checked (importante caso o label não dispare o input sozinho)
         const input = option.querySelector('input[type="radio"]');
-        if (input) input.checked = true;
+        if (input) {
+          input.checked = true;
+          // Dispara evento para que listeners manuais (como o de mostrar/esconder a caixa de detalhes) detectem a mudança
+          input.dispatchEvent(new Event('change'));
+        }
       });
     });
   };
 
   setupRadioGroups('mat-options');
   setupRadioGroups('room-options');
+
+  // Controle de visibilidade do campo "Personalizado"
+  const matOptions = document.querySelectorAll('input[name="material"]');
+  const customDetailsWrapper = document.getElementById('custom-details-wrapper');
+  
+  matOptions.forEach(opt => {
+    opt.addEventListener('change', (e) => {
+      if (e.target.value === 'Projeto Personalizado / Especial') {
+        customDetailsWrapper.style.display = 'block';
+      } else {
+        customDetailsWrapper.style.display = 'none';
+      }
+    });
+  });
 
   // Slider de Metragem e Opção "Não sei"
   const slider = document.getElementById('size-slider');
@@ -269,16 +287,23 @@ function initCalculator() {
     btnSend.addEventListener('click', () => {
       const materialEl = document.querySelector('input[name="material"]:checked');
       const roomEl = document.querySelector('input[name="room"]:checked');
+      const customDetailsInput = document.getElementById('custom-details-input');
       const isSizeUnknown = sizeUnknown ? sizeUnknown.checked : false;
 
       const material = materialEl ? materialEl.value : 'Não definido';
       const room = roomEl ? roomEl.value : 'Ainda não definido';
-      const size = isSizeUnknown ? 'Não sei informar' : `${slider.value} m²`;
+      const size = isSizeUnknown ? 'Ainda não sei medir' : `${slider.value} m²`;
+
+      let materialText = material;
+      const isCustom = materialEl && materialEl.value === 'Projeto Personalizado / Especial';
+      if (isCustom && customDetailsInput && customDetailsInput.value.trim() !== '') {
+        materialText += `\n- *Ideia/Detalhes do projeto:* ${customDetailsInput.value.trim()}`;
+      }
 
       const message = `${CONFIG.whatsappGreeting}
 
 *Detalhes do meu projeto:*
-- *Acabamento:* ${material}
+- *Acabamento:* ${materialText}
 - *Ambiente:* ${room}
 - *Tamanho:* ${size}
 
