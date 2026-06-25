@@ -517,7 +517,7 @@ nav a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(29, 29, 31, 0.95);
+  background-color: rgba(15, 15, 17, 0.98); /* Fundo um pouco mais escuro para foco */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   z-index: 2000;
@@ -536,10 +536,13 @@ nav a:hover {
 
 .lightbox-content {
   max-width: 90%;
-  max-height: 80vh;
+  max-height: 85vh;
   position: relative;
   transform: scale(0.95);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .lightbox.active .lightbox-content {
@@ -548,27 +551,84 @@ nav a:hover {
 
 .lightbox-img {
   max-width: 100%;
-  max-height: 80vh;
+  max-height: 85vh;
   object-fit: contain;
   border-radius: var(--radius-md);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: zoom-in; /* Cursor indica que pode expandir */
+}
+
+/* Estado de Zoom ativado ao clicar na foto */
+.lightbox-img.zoomed {
+  transform: scale(1.6);
+  cursor: zoom-out;
+  border-radius: 0; /* Tira borda redonda quando expandida */
 }
 
 .lightbox-close {
   position: absolute;
-  top: -48px;
-  right: 0;
+  top: 20px;
+  right: 30px;
   color: var(--bg-white);
-  font-size: 2rem;
+  font-size: 2.5rem;
   background: none;
   border: none;
   cursor: pointer;
   opacity: 0.7;
   transition: var(--transition-fast);
+  z-index: 2005;
 }
 
 .lightbox-close:hover {
   opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Botões de Navegação Lateral */
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--bg-white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 1.5rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2001;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+
+.lightbox-nav:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-prev {
+  left: 30px;
+}
+
+.lightbox-next {
+  right: 30px;
+}
+
+/* Esconder botões laterais no celular para focar no Swipe (arrastar) */
+@media (max-width: 768px) {
+  .lightbox-nav {
+    display: none;
+  }
+  .lightbox-close {
+    top: 10px;
+    right: 15px;
+  }
 }
 
 /* --- CALCULATOR SECTION (B2C FRICTIONLESS) --- */
