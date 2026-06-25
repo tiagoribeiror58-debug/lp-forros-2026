@@ -76,7 +76,7 @@ function initGallery() {
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
-      // Atualiza classe active
+      // Atualiza classe active nos botões
       filterBtns.forEach(b => b.classList.remove('active'));
       e.target.classList.add('active');
       
@@ -85,9 +85,12 @@ function initGallery() {
       
       items.forEach(item => {
         if (filter === 'all' || item.dataset.category === filter) {
-          item.style.display = 'block';
+          // Remover classe hidden e limpar o display inline
+          item.classList.remove('hidden');
+          item.style.display = '';
         } else {
-          item.style.display = 'none';
+          // Adicionar classe hidden
+          item.classList.add('hidden');
         }
       });
     });

@@ -89,153 +89,83 @@
   <!-- PORTFOLIO / GALLERY -->
   <section id="galeria" class="section portfolio">
     <div class="container">
-      <h2 class="reveal">Alguns dos nossos trabalhos</h2>
+      <div class="portfolio-header reveal">
+        <h2>Alguns dos nossos trabalhos</h2>
+        <p class="philosophy-subtitle">Confira detalhes das nossas entregas e o capricho que temos em cada instalação.</p>
+      </div>
       
-      <!-- Filters will be generated dynamically or kept simple -->
       <div class="portfolio-filters reveal">
-        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn active" data-filter="all">Todos os Projetos</button>
         <button class="filter-btn" data-filter="pvc">PVC Premium</button>
-        <button class="filter-btn" data-filter="gesso">Gesso</button>
-        <button class="filter-btn" data-filter="madeira">Amadeirado</button>
+        <button class="filter-btn" data-filter="gesso">Gesso & Drywall</button>
+        <button class="filter-btn" data-filter="madeira">Forros Amadeirados</button>
       </div>
 
       <div class="portfolio-grid reveal" id="gallery-container">
+        <!-- Reorganizando para serem elementos semânticos de figure, que representam melhor uma imagem com legenda -->
+        <figure class="portfolio-item reveal active" data-category="pvc">
+          <img src="/Imagens-tetos/projeto-1.jpeg" alt="Teto em PVC Branco Premium com acabamento nivelado" loading="lazy" onclick="openLightbox('/Imagens-tetos/projeto-1.jpeg')">
+          <figcaption class="portfolio-info" onclick="openLightbox('/Imagens-tetos/projeto-1.jpeg')">
+            <span class="portfolio-title">Forro PVC Branco</span>
+            <span class="portfolio-tag">PVC Premium</span>
+          </figcaption>
+        </figure>
 
-        <div class="portfolio-item reveal active" data-category="pvc">
-          <img src="/Imagens-tetos/projeto-1.jpeg" alt="Forro PVC" loading="lazy" onclick="openLightbox('/Imagens-tetos/projeto-1.jpeg')">
-          <div class="portfolio-info" onclick="openLightbox('/Imagens-tetos/projeto-1.jpeg')">
-            <div class="portfolio-title">Forro PVC</div>
-            <div class="portfolio-tag">PVC</div>
-          </div>
-        </div>
+        <figure class="portfolio-item reveal active" data-category="gesso">
+          <img src="/Imagens-tetos/projeto-2.jpeg" alt="Teto de gesso acartonado para ambiente interno" loading="lazy" onclick="openLightbox('/Imagens-tetos/projeto-2.jpeg')">
+          <figcaption class="portfolio-info" onclick="openLightbox('/Imagens-tetos/projeto-2.jpeg')">
+            <span class="portfolio-title">Gesso Acartonado</span>
+            <span class="portfolio-tag">Gesso</span>
+          </figcaption>
+        </figure>
 
-        <div class="portfolio-item reveal active" data-category="gesso">
-          <img src="/Imagens-tetos/projeto-2.jpeg" alt="Gesso Acartonado" loading="lazy" onclick="openLightbox('/Imagens-tetos/projeto-2.jpeg')">
-          <div class="portfolio-info" onclick="openLightbox('/Imagens-tetos/projeto-2.jpeg')">
-            <div class="portfolio-title">Gesso Acartonado</div>
-            <div class="portfolio-tag">GESSO</div>
-          </div>
-        </div>
+        <figure class="portfolio-item reveal active" data-category="madeira">
+          <img src="/Imagens-tetos/projeto-3.jpeg" alt="Forro com acabamento que simula madeira natural" loading="lazy" onclick="openLightbox('/Imagens-tetos/projeto-3.jpeg')">
+          <figcaption class="portfolio-info" onclick="openLightbox('/Imagens-tetos/projeto-3.jpeg')">
+            <span class="portfolio-title">Teto Amadeirado</span>
+            <span class="portfolio-tag">Amadeirado</span>
+          </figcaption>
+        </figure>
 
-        <div class="portfolio-item reveal active" data-category="madeira">
-          <img src="/Imagens-tetos/projeto-3.jpeg" alt="Amadeirado" loading="lazy" onclick="openLightbox('/Imagens-tetos/projeto-3.jpeg')">
-          <div class="portfolio-info" onclick="openLightbox('/Imagens-tetos/projeto-3.jpeg')">
-            <div class="portfolio-title">Amadeirado</div>
-            <div class="portfolio-tag">MADEIRA</div>
-          </div>
-        </div>
+        <figure class="portfolio-item reveal active" data-category="gesso">
+          <img src="/Imagens-tetos/projeto-4.jpeg" alt="Sanca de gesso com fita de LED indireta e spots embutidos" loading="lazy" onclick="openLightbox('/Imagens-tetos/projeto-4.jpeg')">
+          <figcaption class="portfolio-info" onclick="openLightbox('/Imagens-tetos/projeto-4.jpeg')">
+            <span class="portfolio-title">Sanca Iluminada</span>
+            <span class="portfolio-tag">Gesso</span>
+          </figcaption>
+        </figure>
 
-        <div class="portfolio-item reveal active" data-category="gesso">
-          <img src="/Imagens-tetos/projeto-4.jpeg" alt="Sanca Iluminada" loading="lazy" onclick="openLightbox('/Imagens-tetos/projeto-4.jpeg')">
-          <div class="portfolio-info" onclick="openLightbox('/Imagens-tetos/projeto-4.jpeg')">
-            <div class="portfolio-title">Sanca Iluminada</div>
-            <div class="portfolio-tag">GESSO</div>
-          </div>
-        </div>
+        <figure class="portfolio-item reveal active" data-category="pvc">
+          <img src="/Imagens-tetos/projeto-5.jpeg" alt="Forro de PVC moderno com iluminação spot redonda" loading="lazy" onclick="openLightbox('/Imagens-tetos/projeto-5.jpeg')">
+          <figcaption class="portfolio-info" onclick="openLightbox('/Imagens-tetos/projeto-5.jpeg')">
+            <span class="portfolio-title">PVC com Spots</span>
+            <span class="portfolio-tag">PVC Premium</span>
+          </figcaption>
+        </figure>
 
-        <div class="portfolio-item reveal active" data-category="pvc">
-          <img src="/Imagens-tetos/projeto-5.jpeg" alt="PVC Premium" loading="lazy" onclick="openLightbox('/Imagens-tetos/projeto-5.jpeg')">
-          <div class="portfolio-info" onclick="openLightbox('/Imagens-tetos/projeto-5.jpeg')">
-            <div class="portfolio-title">PVC Premium</div>
-            <div class="portfolio-tag">PVC</div>
-          </div>
-        </div>
+        <figure class="portfolio-item reveal active" data-category="madeira">
+          <img src="/Imagens-tetos/projeto-6.jpeg" alt="Teto de madeira na área externa varanda" loading="lazy" onclick="openLightbox('/Imagens-tetos/projeto-6.jpeg')">
+          <figcaption class="portfolio-info" onclick="openLightbox('/Imagens-tetos/projeto-6.jpeg')">
+            <span class="portfolio-title">Estilo Rústico Externo</span>
+            <span class="portfolio-tag">Amadeirado</span>
+          </figcaption>
+        </figure>
 
-        <div class="portfolio-item reveal active" data-category="madeira">
-          <img src="/Imagens-tetos/projeto-6.jpeg" alt="Estilo Rústico" loading="lazy" onclick="openLightbox('/Imagens-tetos/projeto-6.jpeg')">
-          <div class="portfolio-info" onclick="openLightbox('/Imagens-tetos/projeto-6.jpeg')">
-            <div class="portfolio-title">Estilo Rústico</div>
-            <div class="portfolio-tag">MADEIRA</div>
-          </div>
-        </div>
+        <figure class="portfolio-item reveal active" data-category="gesso">
+          <img src="/Imagens-tetos/projeto-7.jpeg" alt="Gesso liso contínuo para sala ampla" loading="lazy" onclick="openLightbox('/Imagens-tetos/projeto-7.jpeg')">
+          <figcaption class="portfolio-info" onclick="openLightbox('/Imagens-tetos/projeto-7.jpeg')">
+            <span class="portfolio-title">Gesso Liso</span>
+            <span class="portfolio-tag">Gesso</span>
+          </figcaption>
+        </figure>
 
-        <div class="portfolio-item reveal active" data-category="gesso">
-          <img src="/Imagens-tetos/projeto-7.jpeg" alt="Gesso Liso" loading="lazy" onclick="openLightbox('/Imagens-tetos/projeto-7.jpeg')">
-          <div class="portfolio-info" onclick="openLightbox('/Imagens-tetos/projeto-7.jpeg')">
-            <div class="portfolio-title">Gesso Liso</div>
-            <div class="portfolio-tag">GESSO</div>
-          </div>
-        </div>
-
-        <div class="portfolio-item reveal active" data-category="pvc">
-          <img src="/Imagens-tetos/projeto-8.jpeg" alt="PVC Claro" loading="lazy" onclick="openLightbox('/Imagens-tetos/projeto-8.jpeg')">
-          <div class="portfolio-info" onclick="openLightbox('/Imagens-tetos/projeto-8.jpeg')">
-            <div class="portfolio-title">PVC Claro</div>
-            <div class="portfolio-tag">PVC</div>
-          </div>
-        </div>
-
-        <div class="portfolio-item reveal active" data-category="gesso">
-          <img src="/Imagens-tetos/projeto-9.jpeg" alt="Iluminação Indireta" loading="lazy" onclick="openLightbox('/Imagens-tetos/projeto-9.jpeg')">
-          <div class="portfolio-info" onclick="openLightbox('/Imagens-tetos/projeto-9.jpeg')">
-            <div class="portfolio-title">Iluminação Indireta</div>
-            <div class="portfolio-tag">GESSO</div>
-          </div>
-        </div>
-
-        <div class="portfolio-item reveal active" data-category="madeira">
-          <img src="/Imagens-tetos/projeto-10.jpeg" alt="Painel Teto" loading="lazy" onclick="openLightbox('/Imagens-tetos/projeto-10.jpeg')">
-          <div class="portfolio-info" onclick="openLightbox('/Imagens-tetos/projeto-10.jpeg')">
-            <div class="portfolio-title">Painel Teto</div>
-            <div class="portfolio-tag">MADEIRA</div>
-          </div>
-        </div>
-
-        <div class="portfolio-item reveal active" data-category="pvc">
-          <img src="/Imagens-tetos/projeto-11.jpeg" alt="Área Externa" loading="lazy" onclick="openLightbox('/Imagens-tetos/projeto-11.jpeg')">
-          <div class="portfolio-info" onclick="openLightbox('/Imagens-tetos/projeto-11.jpeg')">
-            <div class="portfolio-title">Área Externa</div>
-            <div class="portfolio-tag">PVC</div>
-          </div>
-        </div>
-
-        <div class="portfolio-item reveal active" data-category="gesso">
-          <img src="/Imagens-tetos/projeto-12.jpeg" alt="Quarto Moderno" loading="lazy" onclick="openLightbox('/Imagens-tetos/projeto-12.jpeg')">
-          <div class="portfolio-info" onclick="openLightbox('/Imagens-tetos/projeto-12.jpeg')">
-            <div class="portfolio-title">Quarto Moderno</div>
-            <div class="portfolio-tag">GESSO</div>
-          </div>
-        </div>
-
-        <div class="portfolio-item reveal active" data-category="madeira">
-          <img src="/Imagens-tetos/projeto-13.jpeg" alt="Madeira Natural" loading="lazy" onclick="openLightbox('/Imagens-tetos/projeto-13.jpeg')">
-          <div class="portfolio-info" onclick="openLightbox('/Imagens-tetos/projeto-13.jpeg')">
-            <div class="portfolio-title">Madeira Natural</div>
-            <div class="portfolio-tag">MADEIRA</div>
-          </div>
-        </div>
-
-        <div class="portfolio-item reveal active" data-category="pvc">
-          <img src="/Imagens-tetos/projeto-14.jpeg" alt="Banheiro Premium" loading="lazy" onclick="openLightbox('/Imagens-tetos/projeto-14.jpeg')">
-          <div class="portfolio-info" onclick="openLightbox('/Imagens-tetos/projeto-14.jpeg')">
-            <div class="portfolio-title">Banheiro Premium</div>
-            <div class="portfolio-tag">PVC</div>
-          </div>
-        </div>
-
-        <div class="portfolio-item reveal active" data-category="gesso">
-          <img src="/Imagens-tetos/projeto-15.jpeg" alt="Sala de Estar" loading="lazy" onclick="openLightbox('/Imagens-tetos/projeto-15.jpeg')">
-          <div class="portfolio-info" onclick="openLightbox('/Imagens-tetos/projeto-15.jpeg')">
-            <div class="portfolio-title">Sala de Estar</div>
-            <div class="portfolio-tag">GESSO</div>
-          </div>
-        </div>
-
-        <div class="portfolio-item reveal active" data-category="pvc">
-          <img src="/Imagens-tetos/projeto-16.jpeg" alt="Garagem" loading="lazy" onclick="openLightbox('/Imagens-tetos/projeto-16.jpeg')">
-          <div class="portfolio-info" onclick="openLightbox('/Imagens-tetos/projeto-16.jpeg')">
-            <div class="portfolio-title">Garagem</div>
-            <div class="portfolio-tag">PVC</div>
-          </div>
-        </div>
-
-        <div class="portfolio-item reveal active" data-category="gesso">
-          <img src="/Imagens-tetos/projeto-17.jpeg" alt="Acabamento Fino" loading="lazy" onclick="openLightbox('/Imagens-tetos/projeto-17.jpeg')">
-          <div class="portfolio-info" onclick="openLightbox('/Imagens-tetos/projeto-17.jpeg')">
-            <div class="portfolio-title">Acabamento Fino</div>
-            <div class="portfolio-tag">GESSO</div>
-          </div>
-        </div>
+        <figure class="portfolio-item reveal active" data-category="pvc">
+          <img src="/Imagens-tetos/projeto-8.jpeg" alt="Forro PVC branco claro com sanca simples" loading="lazy" onclick="openLightbox('/Imagens-tetos/projeto-8.jpeg')">
+          <figcaption class="portfolio-info" onclick="openLightbox('/Imagens-tetos/projeto-8.jpeg')">
+            <span class="portfolio-title">PVC Claro</span>
+            <span class="portfolio-tag">PVC Premium</span>
+          </figcaption>
+        </figure>
       </div>
     </div>
   </section>
