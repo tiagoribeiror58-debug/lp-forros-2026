@@ -1,5 +1,5 @@
 /**
- * Prime Acabamentos - Scripts Principais
+ * MF Prime Acabamentos - Scripts Principais
  * Design System B2C focado em usabilidade e performance.
  */
 
@@ -8,7 +8,7 @@ const CONFIG = {
   // Número do WhatsApp (Substitua pelo número real do cliente)
   whatsappNumber: '5511999999999', 
   // Mensagem padrão do WhatsApp
-  whatsappGreeting: 'Olá, Prime Acabamentos! Vim pelo site e gostaria de um orçamento.'
+  whatsappGreeting: 'Olá, MF Prime Acabamentos! Vim pelo site e gostaria de um orçamento.'
 };
 
 // 2. Estado do Aplicativo
