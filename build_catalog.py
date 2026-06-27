@@ -1,9 +1,5 @@
 import re
 
-with open('index.html', 'r', encoding='utf-8') as f:
-    index_html = f.read()
-
-# Get header and footer from index.html (or I will just use string blocks to be safe)
 html_template = """<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -11,6 +7,31 @@ html_template = """<!DOCTYPE html>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Catálogo de Projetos | MF Prime Acabamentos</title>
   <meta name="description" content="Catálogo completo de projetos residenciais e comerciais em PVC, Drywall e Divisórias da MF Prime Acabamentos.">
+
+  <!-- TODO: troque a URL base abaixo pelo seu domínio próprio quando tiver -->
+  <link rel="canonical" href="https://lp-forros-2026.vercel.app/catalogo">
+  <meta name="theme-color" content="#a8662e">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/logo.png">
+  <link rel="apple-touch-icon" href="/logo.png">
+
+  <!-- Open Graph (WhatsApp, Facebook, Instagram) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="MF Prime Acabamentos">
+  <meta property="og:title" content="Catálogo de Projetos | MF Prime Acabamentos">
+  <meta property="og:description" content="Forros, divisórias e revestimentos para projetos residenciais e comerciais (B2B).">
+  <meta property="og:url" content="https://lp-forros-2026.vercel.app/catalogo">
+  <meta property="og:image" content="https://lp-forros-2026.vercel.app/Imagens-tetos/projeto-4.jpeg">
+  <meta property="og:image:alt" content="Projeto de teto instalado pela MF Prime Acabamentos">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Catálogo de Projetos | MF Prime Acabamentos">
+  <meta name="twitter:description" content="Forros, divisórias e revestimentos para projetos residenciais e comerciais (B2B).">
+  <meta name="twitter:image" content="https://lp-forros-2026.vercel.app/Imagens-tetos/projeto-4.jpeg">
+
   <link rel="stylesheet" href="/src/css/main.css">
 </head>
 <body class="catalog-page">
@@ -27,7 +48,7 @@ html_template = """<!DOCTYPE html>
         <ul>
           <li><a href="index.html">Início</a></li>
           <li><a href="index.html#galeria">Portfólio</a></li>
-          <li><a href="catalogo.html" class="active">Catálogo</a></li>
+          <li><a href="/catalogo" class="active">Catálogo</a></li>
         </ul>
       </nav>
       <a href="index.html#orcamento" class="btn btn-primary">Fazer Orçamento</a>
@@ -177,5 +198,5 @@ def parse_markdown(filepath):
     with open('catalogo.html', 'w', encoding='utf-8') as f:
         f.write(final_html)
 
-parse_markdown('c:\\\\Users\\\\tiago\\\\OneDrive\\\\Desktop\\\\projetos_prime_acabamentos.md')
+parse_markdown('catalogo-projetos.md')
 print('catalogo.html gerado com sucesso.')
