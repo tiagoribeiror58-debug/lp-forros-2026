@@ -348,7 +348,7 @@ Poderiam me passar uma estimativa de valor ou agendar uma visita?`;
     });
   }
 }
-\n
+
 /**
  * Catálogo Completo Logic
  */
