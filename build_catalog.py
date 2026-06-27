@@ -177,5 +177,5 @@ def parse_markdown(filepath):
     with open('catalogo.html', 'w', encoding='utf-8') as f:
         f.write(final_html)
 
-parse_markdown('../projetos_prime_acabamentos.md')
+parse_markdown('c:\\\\Users\\\\tiago\\\\OneDrive\\\\Desktop\\\\projetos_prime_acabamentos.md')
 print('catalogo.html gerado com sucesso.')
