@@ -11,7 +11,7 @@ html_template = """<!DOCTYPE html>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Catálogo de Projetos | MF Prime Acabamentos</title>
   <meta name="description" content="Catálogo completo de projetos residenciais e comerciais em PVC, Drywall e Divisórias da MF Prime Acabamentos.">
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="/src/css/main.css">
 </head>
 <body class="catalog-page">
   <!-- HEADER -->
@@ -104,7 +104,7 @@ html_template = """<!DOCTYPE html>
     </div>
   </footer>
 
-  <script type="module" src="app.js"></script>
+  <script type="module" src="/src/js/main.js"></script>
 </body>
 </html>
 """
