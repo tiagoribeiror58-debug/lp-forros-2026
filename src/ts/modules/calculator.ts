@@ -1,10 +1,10 @@
 import { CONFIG } from '../config.js';
 
-export function initCalculator() {
+export function initCalculator(): void {
   const customDetailsWrapper = document.getElementById('custom-details-wrapper');
-  if (!customDetailsWrapper) return; // Se não existe calculadora na página, aborta.
+  if (!customDetailsWrapper) return; 
 
-  const setupRadioGroups = (containerId) => {
+  const setupRadioGroups = (containerId: string): void => {
     const container = document.getElementById(containerId);
     if (!container) return;
     const options = container.querySelectorAll('.calc-option');
@@ -13,7 +13,7 @@ export function initCalculator() {
       option.addEventListener('click', () => {
         options.forEach(opt => opt.classList.remove('selected'));
         option.classList.add('selected');
-        const input = option.querySelector('input[type="radio"]');
+        const input = option.querySelector('input[type="radio"]') as HTMLInputElement | null;
         if (input) {
           input.checked = true;
           input.dispatchEvent(new Event('change'));
@@ -25,10 +25,11 @@ export function initCalculator() {
   setupRadioGroups('mat-options');
   setupRadioGroups('room-options');
 
-  const matOptions = document.querySelectorAll('input[name="material"]');
+  const matOptions = document.querySelectorAll<HTMLInputElement>('input[name="material"]');
   matOptions.forEach(opt => {
-    opt.addEventListener('change', (e) => {
-      if (e.target.value === 'Projeto Personalizado / Especial') {
+    opt.addEventListener('change', (e: Event) => {
+      const target = e.target as HTMLInputElement;
+      if (target.value === 'Projeto Personalizado / Especial') {
         customDetailsWrapper.style.display = 'block';
       } else {
         customDetailsWrapper.style.display = 'none';
@@ -36,15 +37,16 @@ export function initCalculator() {
     });
   });
 
-  const slider = document.getElementById('size-slider');
+  const slider = document.getElementById('size-slider') as HTMLInputElement | null;
   const sizeDisplay = document.getElementById('size-display');
-  const sizeUnknown = document.getElementById('size-unknown');
+  const sizeUnknown = document.getElementById('size-unknown') as HTMLInputElement | null;
   const sizeWrapper = document.getElementById('size-wrapper');
   
   if (slider && sizeDisplay) {
-    slider.addEventListener('input', (e) => {
-      sizeDisplay.textContent = e.target.value;
-      if (sizeUnknown) {
+    slider.addEventListener('input', (e: Event) => {
+      const target = e.target as HTMLInputElement;
+      sizeDisplay.textContent = target.value;
+      if (sizeUnknown && sizeWrapper) {
         sizeUnknown.checked = false;
         sizeWrapper.style.opacity = '1';
         sizeWrapper.style.pointerEvents = 'auto';
@@ -53,8 +55,9 @@ export function initCalculator() {
   }
 
   if (sizeUnknown && sizeWrapper) {
-    sizeUnknown.addEventListener('change', (e) => {
-      if(e.target.checked) {
+    sizeUnknown.addEventListener('change', (e: Event) => {
+      const target = e.target as HTMLInputElement;
+      if(target.checked) {
         sizeWrapper.style.opacity = '0.4';
         sizeWrapper.style.pointerEvents = 'none'; 
       } else {
@@ -67,14 +70,14 @@ export function initCalculator() {
   const btnSend = document.getElementById('btn-send-whatsapp');
   if (btnSend) {
     btnSend.addEventListener('click', () => {
-      const materialEl = document.querySelector('input[name="material"]:checked');
-      const roomEl = document.querySelector('input[name="room"]:checked');
-      const customDetailsInput = document.getElementById('custom-details-input');
+      const materialEl = document.querySelector<HTMLInputElement>('input[name="material"]:checked');
+      const roomEl = document.querySelector<HTMLInputElement>('input[name="room"]:checked');
+      const customDetailsInput = document.getElementById('custom-details-input') as HTMLInputElement | null;
       const isSizeUnknown = sizeUnknown ? sizeUnknown.checked : false;
 
       const material = materialEl ? materialEl.value : 'Não definido';
       const room = roomEl ? roomEl.value : 'Ainda não definido';
-      const size = isSizeUnknown ? 'Ainda não sei medir' : `${slider.value} m²`;
+      const size = isSizeUnknown ? 'Ainda não sei medir' : (slider ? `${slider.value} m²` : 'Não definido');
 
       let materialText = material;
       const isCustom = materialEl && materialEl.value === 'Projeto Personalizado / Especial';

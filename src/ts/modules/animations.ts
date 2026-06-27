@@ -1,8 +1,8 @@
-export function initScrollAnimations() {
+export function initScrollAnimations(): void {
   const reveals = document.querySelectorAll('.reveal');
   if (reveals.length === 0) return;
   
-  const observerOptions = {
+  const observerOptions: IntersectionObserverInit = {
     root: null,
     rootMargin: '0px',
     threshold: 0.15
@@ -20,7 +20,7 @@ export function initScrollAnimations() {
   reveals.forEach(element => observer.observe(element));
 }
 
-export function initHeaderScroll() {
+export function initHeaderScroll(): void {
   const header = document.getElementById('main-header');
   if (!header) return;
   

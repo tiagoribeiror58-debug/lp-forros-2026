@@ -104,7 +104,7 @@ html_template = """<!DOCTYPE html>
     </div>
   </footer>
 
-  <script type="module" src="/src/js/main.js"></script>
+  <script type="module" src="/src/ts/main.ts"></script>
 </body>
 </html>
 """
