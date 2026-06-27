@@ -997,3 +997,133 @@ footer {
     gap: var(--space-md);
   }
 }
+
+/* --- CATALOGO DE PROJETOS --- */
+.catalog-page {
+  background-color: var(--bg-light);
+}
+
+.catalog-hero {
+  padding: calc(var(--header-height) + var(--space-lg)) 0 var(--space-md) 0;
+  background-color: var(--bg-light);
+  min-height: auto;
+}
+
+.catalog-tabs {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.catalog-tab-btn {
+  padding: 12px 24px;
+  background-color: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-medium);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.catalog-tab-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.catalog-tab-btn.active {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: var(--bg-white);
+  box-shadow: 0 4px 12px rgba(168, 102, 46, 0.2);
+}
+
+.catalog-category-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+  color: var(--text-dark);
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border-light);
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.catalog-card {
+  background-color: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.catalog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-premium);
+  border-color: var(--primary-light);
+}
+
+.catalog-badges {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-premium {
+  background-color: #2c2c2c; /* Carvão escuro */
+  color: #d4af37; /* Dourado/Gold */
+  border: 1px solid #d4af37;
+}
+
+.badge-trending {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+
+.badge-info {
+  background-color: var(--bg-light);
+  color: var(--text-medium);
+  border: 1px solid var(--border-light);
+}
+
+.catalog-card-title {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.catalog-card-desc {
+  font-size: 0.9rem;
+  color: var(--text-medium);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.catalog-card-action {
+  margin-top: auto;
+}
