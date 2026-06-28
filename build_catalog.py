@@ -130,6 +130,71 @@ html_template = """<!DOCTYPE html>
 </html>
 """
 
+def get_project_image(name, category_title):
+    name_lower = name.lower()
+    cat_lower = category_title.lower()
+    
+    # 1. Painel Madeira
+    if any(k in name_lower for k in ["amadeirado", "ripado", "madeira", "pergolado"]):
+        return "/Imagens-tetos/geradas/painel-madeira.png"
+    # Painel de TV
+    elif "tv" in name_lower:
+        return "/Imagens-tetos/geradas/painel-tv.png"
+    # 2. Painel 3D
+    elif "3d" in name_lower:
+        return "/Imagens-tetos/geradas/painel-3d.png"
+    # 3. Painel Marmorizado
+    elif "marmorizado" in name_lower:
+        return "/Imagens-tetos/geradas/painel-marmorizado.png"
+    # 4. Cimento Queimado
+    elif "cimento" in name_lower:
+        return "/Imagens-tetos/geradas/cimento-queimado.png"
+    # 5. Sanca com LED
+    elif any(k in name_lower for k in ["sanca", "led", "spot", "iluminação"]):
+        return "/Imagens-tetos/geradas/sanca-led.png"
+    # 6. Forro Drywall
+    elif "drywall" in name_lower and any(k in name_lower for k in ["forro", "teto"]):
+        return "/Imagens-tetos/geradas/forro-drywall.png"
+    # 7. Forro PVC
+    elif "pvc" in name_lower and any(k in name_lower for k in ["forro", "teto"]):
+        return "/Imagens-tetos/geradas/forro-pvc.png"
+    # 8. Divisoria Vidro
+    elif "vidro" in name_lower and "divisória" in name_lower:
+        return "/Imagens-tetos/geradas/divisoria-vidro.png"
+    # 9. Divisoria Drywall
+    elif "divisória" in name_lower or "parede" in name_lower or "layout open space" in name_lower:
+        return "/Imagens-tetos/geradas/divisoria-drywall.png"
+    # 10. Closet Drywall
+    elif "closet" in name_lower:
+        return "/Imagens-tetos/geradas/closet-drywall.png"
+    # 11. Recepção Comercial
+    elif "recepção" in name_lower:
+        return "/Imagens-tetos/geradas/recepcao-comercial.png"
+    # 12. Clinica/Procedimento
+    elif any(k in name_lower for k in ["clínica", "médico", "odontológico", "consultório", "esterilização", "farmácia", "laboratório"]):
+        return "/Imagens-tetos/geradas/clinica-procedimento.png"
+    # 13. Isolamento Acústico
+    elif any(k in name_lower for k in ["acústico", "isolamento", "estúdio", "podcast"]):
+        return "/Imagens-tetos/geradas/isolamento-acustico.png"
+    # 14. Area Kids
+    elif any(k in name_lower for k in ["kids", "brinquedoteca", "escola", "aula"]):
+        return "/Imagens-tetos/geradas/area-kids.png"
+    # 15. Fachada/Lounge/Comercial
+    elif any(k in name_lower for k in ["fachada", "lounge", "hotel", "hoteleira", "uh", "comum", "condomínio", "restaurante", "gourmet", "balcão"]):
+        return "/Imagens-tetos/geradas/fachada-loja.png"
+    
+    # Fallbacks baseados na categoria
+    if "revestimento" in cat_lower or "painel" in cat_lower:
+        return "/Imagens-tetos/geradas/painel-madeira.png"
+    elif "forro" in cat_lower or "iluminação" in cat_lower:
+        return "/Imagens-tetos/geradas/forro-drywall.png"
+    elif "divisória" in cat_lower or "ambientes" in cat_lower:
+        return "/Imagens-tetos/geradas/divisoria-drywall.png"
+    elif "clínica" in cat_lower or "saúde" in cat_lower:
+        return "/Imagens-tetos/geradas/clinica-procedimento.png"
+    
+    return "/Imagens-tetos/geradas/forro-drywall.png"
+
 def parse_markdown(filepath):
     with open(filepath, 'r', encoding='utf-8') as f:
         content = f.read()
@@ -164,23 +229,28 @@ def parse_markdown(filepath):
                         
                         badges_html = ""
                         if '⭐' in destaque:
-                            badges_html += '<span class="badge badge-premium">⭐ Premium</span>'
+                            badges_html += '<span class="badge badge-premium"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; display: inline-block; vertical-align: text-top;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> Premium</span>'
                         if '🔁' in destaque:
-                            badges_html += '<span class="badge badge-trending">🔁 Mais Pedido</span>'
+                            badges_html += '<span class="badge badge-trending"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; display: inline-block; vertical-align: text-top;"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg> Mais Pedido</span>'
                         if '⭐' not in destaque and '🔁' not in destaque and destaque != '':
                             text = destaque.replace("⭐","").replace("🔁","").strip()
                             if text:
                                 badges_html += f'<span class="badge badge-info">{text}</span>'
                             
+                        img_path = get_project_image(name, title)
+                        
                         card_html = f'''
                         <div class="catalog-card reveal">
+                          <div class="catalog-card-img">
+                            <img src="{img_path}" alt="{name}" loading="lazy">
+                          </div>
                           <div class="catalog-card-content">
                             <div class="catalog-badges">{badges_html}</div>
                             <h4 class="catalog-card-title">{name}</h4>
                             <p class="catalog-card-desc">{desc}</p>
                           </div>
                           <div class="catalog-card-action">
-                            <a href="index.html#orcamento" class="btn btn-outline btn-small">Tenho interesse</a>
+                            <a href="index.html#orcamento" class="btn btn-primary btn-small" style="width: 100%; display: flex; justify-content: center; gap: 8px;">Fazer orçamento</a>
                           </div>
                         </div>
                         '''
