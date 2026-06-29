@@ -238,9 +238,15 @@
       <h2 class="reveal">Solicite sua Cotação Especializada</h2>
       <p class="philosophy-subtitle reveal">Selecione as especificações do seu projeto abaixo. Nossa equipe técnica retornará rapidamente via WhatsApp com uma proposta detalhada.</p>
       
-      <div class="calc-box reveal">
+      <div class="calc-box reveal wizard-container">
+        <!-- Progress Indicator -->
+        <div class="wizard-progress">
+          <div class="wizard-progress-bar" id="wizard-progress-bar" style="width: 33.33%;"></div>
+          <div class="wizard-progress-text">Passo <span id="wizard-current-step-text">1</span> de 3</div>
+        </div>
+
         <!-- Step 1: Material -->
-        <div class="calc-step">
+        <div class="calc-step wizard-step active" data-step="1">
           <div class="calc-step-title">
             <span class="calc-step-number">1</span> Escolha o Acabamento
           </div>
@@ -271,10 +277,13 @@
             <label for="custom-details-input">Descreva as especificidades do seu projeto arquitetônico:</label>
             <textarea id="custom-details-input" rows="2" placeholder="Ex: Quero sanca invertida com LED, ou preciso de isolamento acústico forte..."></textarea>
           </div>
+          <div class="wizard-nav">
+            <button class="btn btn-secondary btn-wizard-next" data-next="2">Próximo ➜</button>
+          </div>
         </div>
 
         <!-- Step 2: Size -->
-        <div class="calc-step">
+        <div class="calc-step wizard-step" data-step="2">
           <div class="calc-step-title" style="display: flex; align-items: center; justify-content: space-between;">
             <div><span class="calc-step-number">2</span> Tamanho Aproximado</div>
             <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-light);">(Opcional)</span>
@@ -290,10 +299,14 @@
             <div class="calc-range-value"><span id="size-display">20</span> m²</div>
             <input type="range" id="size-slider" class="calc-slider" min="5" max="150" value="20" step="5">
           </div>
+          <div class="wizard-nav">
+            <button class="btn btn-outline btn-wizard-prev" data-prev="1">⬅ Voltar</button>
+            <button class="btn btn-secondary btn-wizard-next" data-next="3">Próximo ➜</button>
+          </div>
         </div>
 
         <!-- Step 3: Type of room -->
-        <div class="calc-step">
+        <div class="calc-step wizard-step" data-step="3">
           <div class="calc-step-title" style="display: flex; align-items: center; justify-content: space-between;">
             <div><span class="calc-step-number">3</span> Qual é o ambiente?</div>
             <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-light);">(Opcional)</span>
@@ -332,13 +345,15 @@
               <div class="calc-option-title">Outro</div>
             </label>
           </div>
-        </div>
-
-        <div class="calc-action">
-          <button id="btn-send-whatsapp" class="btn btn-whatsapp">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-            Solicitar Orçamento no WhatsApp
-          </button>
+          </div>
+          
+          <div class="wizard-nav wizard-nav-final">
+            <button class="btn btn-outline btn-wizard-prev" data-prev="2">⬅ Voltar</button>
+            <button id="btn-send-whatsapp" class="btn btn-whatsapp">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              Solicitar Orçamento
+            </button>
+          </div>
         </div>
       </div>
     </div>

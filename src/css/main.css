@@ -651,6 +651,75 @@ nav a.active::after {
   }
 }
 
+/* =========================================
+   WIZARD CSS (BUDGET CALCULATOR)
+   ========================================= */
+.wizard-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.wizard-progress {
+  width: 100%;
+  background-color: #eee;
+  height: 6px;
+  border-radius: 3px;
+  margin-bottom: var(--space-md);
+  position: relative;
+}
+
+.wizard-progress-bar {
+  height: 100%;
+  background-color: var(--primary);
+  border-radius: 3px;
+  transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.wizard-progress-text {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+.wizard-step {
+  display: none;
+  opacity: 0;
+  transform: translateX(20px);
+  animation: slideFadeIn 0.4s forwards cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.wizard-step.active {
+  display: block;
+}
+
+@keyframes slideFadeIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.wizard-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--border-color);
+}
+
+.wizard-nav-final {
+  justify-content: space-between;
+}
+
+/* Update calc-step margin to avoid double spacing */
+.wizard-step .calc-step-title {
+  margin-top: var(--space-sm);
+}
+
 /* --- CALCULATOR SECTION (B2C FRICTIONLESS) --- */
 .calculator {
   background-color: var(--bg-light);

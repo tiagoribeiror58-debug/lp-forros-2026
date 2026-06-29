@@ -100,4 +100,49 @@ Poderiam me passar uma estimativa de valor ou agendar uma visita?`;
       window.open(waUrl, '_blank');
     });
   }
+
+  // --- WIZARD LOGIC ---
+  const wizardSteps = document.querySelectorAll<HTMLElement>('.wizard-step');
+  const btnNext = document.querySelectorAll<HTMLButtonElement>('.btn-wizard-next');
+  const btnPrev = document.querySelectorAll<HTMLButtonElement>('.btn-wizard-prev');
+  const progressBar = document.getElementById('wizard-progress-bar');
+  const progressText = document.getElementById('wizard-current-step-text');
+  
+  if (wizardSteps.length > 0) {
+    const totalSteps = wizardSteps.length;
+
+    const updateWizardState = (stepIndex: number): void => {
+      // stepIndex is 1-based (1, 2, 3)
+      wizardSteps.forEach(step => {
+        if (parseInt(step.dataset.step || '1') === stepIndex) {
+          step.classList.add('active');
+        } else {
+          step.classList.remove('active');
+        }
+      });
+      
+      if (progressBar) {
+        progressBar.style.width = `${(stepIndex / totalSteps) * 100}%`;
+      }
+      if (progressText) {
+        progressText.textContent = stepIndex.toString();
+      }
+    };
+
+    btnNext.forEach(btn => {
+      btn.addEventListener('click', (e: MouseEvent) => {
+        e.preventDefault();
+        const nextStep = parseInt(btn.dataset.next || '2');
+        updateWizardState(nextStep);
+      });
+    });
+
+    btnPrev.forEach(btn => {
+      btn.addEventListener('click', (e: MouseEvent) => {
+        e.preventDefault();
+        const prevStep = parseInt(btn.dataset.prev || '1');
+        updateWizardState(prevStep);
+      });
+    });
+  }
 }
