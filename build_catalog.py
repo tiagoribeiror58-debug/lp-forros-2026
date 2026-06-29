@@ -5,7 +5,7 @@ html_template = """<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catálogo de Projetos | MF Prime Acabamentos</title>
+  <title>Ideias de Projetos | MF Prime Acabamentos</title>
   <meta name="description" content="Catálogo completo de projetos residenciais e comerciais em PVC, Drywall e Divisórias da MF Prime Acabamentos.">
 
   <!-- TODO: troque a URL base abaixo pelo seu domínio próprio quando tiver -->
@@ -20,7 +20,7 @@ html_template = """<!DOCTYPE html>
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:site_name" content="MF Prime Acabamentos">
-  <meta property="og:title" content="Catálogo de Projetos | MF Prime Acabamentos">
+  <meta property="og:title" content="Ideias de Projetos | MF Prime Acabamentos">
   <meta property="og:description" content="Forros, divisórias e revestimentos para projetos residenciais e comerciais (B2B).">
   <meta property="og:url" content="https://lp-forros-2026.vercel.app/catalogo">
   <meta property="og:image" content="https://lp-forros-2026.vercel.app/Imagens-tetos/projeto-4.jpeg">
@@ -28,7 +28,7 @@ html_template = """<!DOCTYPE html>
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Catálogo de Projetos | MF Prime Acabamentos">
+  <meta name="twitter:title" content="Ideias de Projetos | MF Prime Acabamentos">
   <meta name="twitter:description" content="Forros, divisórias e revestimentos para projetos residenciais e comerciais (B2B).">
   <meta name="twitter:image" content="https://lp-forros-2026.vercel.app/Imagens-tetos/projeto-4.jpeg">
 
@@ -59,7 +59,7 @@ html_template = """<!DOCTYPE html>
     <div class="container">
       <div class="hero-content" style="text-align: center; max-width: 800px; margin: 0 auto;">
         <span class="hero-tagline">Soluções Completas</span>
-        <h1 class="hero-title">Catálogo de Projetos</h1>
+        <h1 class="hero-title">Ideias de Projetos</h1>
         <p class="hero-desc lead">Navegue pelas nossas opções de forros, divisórias e revestimentos para projetos residenciais e comerciais (B2B).</p>
       </div>
     </div>

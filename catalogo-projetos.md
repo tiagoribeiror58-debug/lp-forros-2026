@@ -1,4 +1,4 @@
-# Catálogo de Projetos — Prime Acabamentos
+# Ideias de Projetos — Prime Acabamentos
 **PVC · Drywall · Divisórias**
 
 > **Nota de uso:** Este documento serve como mapa comercial para o gestor. Projetos marcados com ⭐ têm maior ticket médio e potencial de recorrência. Projetos marcados com 🔁 geram indicação natural (clientes mostram para amigos e parceiros). Os itens foram expandidos a partir da lista original de levantamento interno — inclui serviços comuns no setor, mas preços e prazos devem ser validados com sua operação.
