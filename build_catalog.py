@@ -150,6 +150,9 @@ def get_project_image(name, category_title):
     # Pergolado PVC
     elif "pergolado" in name_lower:
         return "/Imagens-tetos/geradas/pergolado-pvc.png"
+    # Porta de Correr Embutida
+    elif "porta" in name_lower or "correr" in name_lower or "embutida" in name_lower:
+        return "/Imagens-tetos/geradas/porta-embutida.png"
     # Cabeceira
     elif "cabeceira" in name_lower:
         return "/Imagens-tetos/geradas/cabeceira-drywall.png"
@@ -195,13 +198,15 @@ def get_project_image(name, category_title):
     elif "recepção" in name_lower:
         return "/Imagens-tetos/geradas/recepcao-comercial.png"
     # 12. Clinica/Procedimento
+    elif any(k in name_lower for k in ["pcd", "acessível"]):
+        return "/Imagens-tetos/geradas/banheiro-acessivel.png"
     elif any(k in name_lower for k in ["clínica", "médico", "odontológico", "consultório", "esterilização", "farmácia", "laboratório"]):
         return "/Imagens-tetos/geradas/clinica-procedimento.png"
     # 13. Isolamento Acústico
     elif any(k in name_lower for k in ["acústico", "isolamento", "estúdio", "podcast"]):
         return "/Imagens-tetos/geradas/isolamento-acustico.png"
     # 14. Area Kids
-    elif any(k in name_lower for k in ["kids", "brinquedoteca", "escola", "aula"]):
+    elif any(k in name_lower for k in ["kids", "brinquedoteca"]):
         return "/Imagens-tetos/geradas/area-kids.png"
     # 23. Quarto de Hotel / UH
     elif "hotel" in name_lower or "uh" in name_lower or ("reforma" in name_lower and "quarto" in name_lower):
@@ -212,6 +217,19 @@ def get_project_image(name, category_title):
     # 25. Estúdio de Podcast/Gravação
     elif "podcast" in name_lower or "gravação" in name_lower or "estúdio" in name_lower:
         return "/Imagens-tetos/geradas/estudio-podcast.png"
+    
+    # Banheiros
+    elif any(k in name_lower for k in ["banheiro", "lavabo", "úmida"]):
+        return "/Imagens-tetos/geradas/banheiro-pvc.png"
+    # Apartamentos compactos
+    elif any(k in name_lower for k in ["compacto", "studio", "quitinete"]):
+        return "/Imagens-tetos/geradas/apartamento-compacto.png"
+    # Sala de aula
+    elif any(k in name_lower for k in ["escola", "aula", "ensino"]):
+        return "/Imagens-tetos/geradas/sala-aula.png"
+    # Corredor
+    elif "corredor" in name_lower:
+        return "/Imagens-tetos/geradas/corredor-hotel.png"
     
     # 26. Fachada/Lounge/Comercial
     elif any(k in name_lower for k in ["fachada", "lounge", "comum", "condomínio", "balcão"]):
