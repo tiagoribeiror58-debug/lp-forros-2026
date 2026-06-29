@@ -111,11 +111,11 @@ html_template = """<!DOCTYPE html>
           </ul>
         </div>
         <div>
-          <div class="footer-links-title">Contato</div>
+          <div class="footer-links-title">Contato e Região</div>
           <ul class="footer-links">
-            <li>WhatsApp: (11) 99999-9999</li>
+            <li>WhatsApp: (27) 99999-9999</li> <!-- ES Area code placeholder -->
             <li>contato@primeacabamentos.com.br</li>
-            <li>Atendimento em toda a Região</li>
+            <li>Atendemos em toda a região da Grande Vitória (ES). Outros locais do ES: sob consulta de disponibilidade.</li>
           </ul>
         </div>
       </div>
@@ -135,8 +135,23 @@ def get_project_image(name, category_title):
     cat_lower = category_title.lower()
     
     # 1. Painel Madeira
-    if any(k in name_lower for k in ["amadeirado", "ripado", "madeira", "pergolado"]):
+    if any(k in name_lower for k in ["amadeirado", "ripado", "madeira"]):
         return "/Imagens-tetos/geradas/painel-madeira.png"
+    # Pergolado PVC
+    elif "pergolado" in name_lower:
+        return "/Imagens-tetos/geradas/pergolado-pvc.png"
+    # Cabeceira
+    elif "cabeceira" in name_lower:
+        return "/Imagens-tetos/geradas/cabeceira-drywall.png"
+    # Lareira
+    elif "lareira" in name_lower:
+        return "/Imagens-tetos/geradas/lareira-drywall.png"
+    # Estante / Nicho
+    elif "estante" in name_lower or "nicho" in name_lower:
+        return "/Imagens-tetos/geradas/estante-drywall.png"
+    # Cobogo
+    elif "cobogó" in name_lower or "vazad" in name_lower:
+        return "/Imagens-tetos/geradas/cobogo-drywall.png"
     # Painel de TV
     elif "tv" in name_lower:
         return "/Imagens-tetos/geradas/painel-tv.png"
@@ -144,17 +159,16 @@ def get_project_image(name, category_title):
     elif "3d" in name_lower:
         return "/Imagens-tetos/geradas/painel-3d.png"
     # 3. Painel Marmorizado
-    elif "marmorizado" in name_lower:
+    elif "marmorizad" in name_lower or "mármore" in name_lower:
         return "/Imagens-tetos/geradas/painel-marmorizado.png"
-    # 4. Cimento Queimado
-    elif "cimento" in name_lower:
-        return "/Imagens-tetos/geradas/cimento-queimado.png"
-    # 5. Sanca com LED
-    elif any(k in name_lower for k in ["sanca", "led", "spot", "iluminação"]):
+    
+    # --- TETOS ---
+    # Sanca Aberta
+    elif "sanca aberta" in name_lower:
+        return "/Imagens-tetos/geradas/sanca-aberta.png"
+    # Sanca geral
+    elif "sanca" in name_lower or "rasgo" in name_lower or "iluminad" in name_lower or "led" in name_lower:
         return "/Imagens-tetos/geradas/sanca-led.png"
-    # 6. Forro Drywall
-    elif "drywall" in name_lower and any(k in name_lower for k in ["forro", "teto"]):
-        return "/Imagens-tetos/geradas/forro-drywall.png"
     # 7. Forro PVC
     elif "pvc" in name_lower and any(k in name_lower for k in ["forro", "teto"]):
         return "/Imagens-tetos/geradas/forro-pvc.png"
@@ -179,9 +193,41 @@ def get_project_image(name, category_title):
     # 14. Area Kids
     elif any(k in name_lower for k in ["kids", "brinquedoteca", "escola", "aula"]):
         return "/Imagens-tetos/geradas/area-kids.png"
-    # 15. Fachada/Lounge/Comercial
-    elif any(k in name_lower for k in ["fachada", "lounge", "hotel", "hoteleira", "uh", "comum", "condomínio", "restaurante", "gourmet", "balcão"]):
+    # 23. Quarto de Hotel / UH
+    elif "hotel" in name_lower or "uh" in name_lower or ("reforma" in name_lower and "quarto" in name_lower):
+        return "/Imagens-tetos/geradas/quarto-hotel.png"
+    # 24. Provador de Loja
+    elif "provador" in name_lower:
+        return "/Imagens-tetos/geradas/provador-loja.png"
+    # 25. Estúdio de Podcast/Gravação
+    elif "podcast" in name_lower or "gravação" in name_lower or "estúdio" in name_lower:
+        return "/Imagens-tetos/geradas/estudio-podcast.png"
+    
+    # 26. Fachada/Lounge/Comercial
+    elif any(k in name_lower for k in ["fachada", "lounge", "comum", "condomínio", "balcão"]):
         return "/Imagens-tetos/geradas/fachada-loja.png"
+    
+    # 16. Spot / Croica
+    elif "spot" in name_lower or "croica" in name_lower:
+        return "/Imagens-tetos/geradas/teto-spot.png"
+    # 17. Teto Tensionado
+    elif "tensionad" in name_lower:
+        return "/Imagens-tetos/geradas/teto-tensionado.png"
+    # 18. Sala Reunião
+    elif "reunião" in name_lower:
+        return "/Imagens-tetos/geradas/sala-reuniao.png"
+    # 19. Coworking / Cabine
+    elif "coworking" in name_lower or "cabine" in name_lower:
+        return "/Imagens-tetos/geradas/coworking-cabine.png"
+    # 20. Cinema
+    elif "cinema" in name_lower:
+        return "/Imagens-tetos/geradas/cinema-corporativo.png"
+    # 21. Cozinha Industrial
+    elif "industrial" in name_lower or "cozinha" in name_lower:
+        return "/Imagens-tetos/geradas/cozinha-industrial.png"
+    # 22. Gourmet / Restaurante
+    elif "gourmet" in name_lower or "churrasqueira" in name_lower or "restaurante" in name_lower:
+        return "/Imagens-tetos/geradas/espaco-gourmet.png"
     
     # Fallbacks baseados na categoria
     if "revestimento" in cat_lower or "painel" in cat_lower:

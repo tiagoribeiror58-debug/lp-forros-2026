@@ -1235,10 +1235,6 @@ footer {
   animation: marquee 25s linear infinite;
 }
 
-.catalog-marquee-track:hover {
-  animation-play-state: paused;
-}
-
 .catalog-marquee-track > .catalog-card {
   width: 260px;
   flex: 0 0 auto;
