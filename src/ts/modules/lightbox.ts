@@ -73,7 +73,11 @@ export function openLightbox(src: string): void {
   } else {
     currentImages = visibleItems.map(img => img.getAttribute('src') || '');
     currentIndex = currentImages.indexOf(src);
-    if(currentIndex === -1) currentIndex = 0;
+    // Se a imagem não for encontrada no portfolio (ex: clicou no catálogo), cria galeria isolada
+    if(currentIndex === -1) {
+      currentImages = [src];
+      currentIndex = 0;
+    }
   }
 
   updateLightboxImage();
