@@ -159,6 +159,9 @@ def get_project_image(name, category_title):
     # Lareira
     elif "lareira" in name_lower:
         return "/Imagens-tetos/geradas/lareira-drywall.png"
+    # Bancada
+    elif "bancada" in name_lower:
+        return "/Imagens-tetos/geradas/bancada-estudo.png"
     # Estante / Nicho
     elif "estante" in name_lower or "nicho" in name_lower:
         return "/Imagens-tetos/geradas/estante-drywall.png"
@@ -174,11 +177,20 @@ def get_project_image(name, category_title):
     # 3. Painel Marmorizado
     elif "marmorizad" in name_lower or "mármore" in name_lower:
         return "/Imagens-tetos/geradas/painel-marmorizado.png"
+    # Cimento Queimado
+    elif "cimento" in name_lower:
+        return "/Imagens-tetos/geradas/cimento-queimado.png"
+    # Liso
+    elif "liso" in name_lower and "painel" in name_lower:
+        return "/Imagens-tetos/geradas/painel-pvc-liso.png"
     
     # --- TETOS ---
     # Sanca Aberta
     elif "sanca aberta" in name_lower:
         return "/Imagens-tetos/geradas/sanca-aberta.png"
+    # Cortineiro
+    elif "cortineiro" in name_lower:
+        return "/Imagens-tetos/geradas/cortineiro-iluminado.png"
     # Sanca geral
     elif "sanca" in name_lower or "rasgo" in name_lower or "iluminad" in name_lower or "led" in name_lower:
         return "/Imagens-tetos/geradas/sanca-led.png"
@@ -188,8 +200,11 @@ def get_project_image(name, category_title):
     # 8. Divisoria Vidro
     elif "vidro" in name_lower and "divisória" in name_lower:
         return "/Imagens-tetos/geradas/divisoria-vidro.png"
+    # Parede Curva
+    elif "curva" in name_lower or "irregular" in name_lower:
+        return "/Imagens-tetos/geradas/parede-curva.png"
     # 9. Divisoria Drywall
-    elif "divisória" in name_lower or "parede" in name_lower or "layout open space" in name_lower:
+    elif "divisória" in name_lower or "parede" in name_lower or "layout open space" in name_lower or "separação" in name_lower:
         return "/Imagens-tetos/geradas/divisoria-drywall.png"
     # 10. Closet Drywall
     elif "closet" in name_lower:
@@ -208,6 +223,12 @@ def get_project_image(name, category_title):
     # 14. Area Kids
     elif any(k in name_lower for k in ["kids", "brinquedoteca"]):
         return "/Imagens-tetos/geradas/area-kids.png"
+    # Dança
+    elif "dança" in name_lower:
+        return "/Imagens-tetos/geradas/sala-danca.png"
+    # Academia / Musculação
+    elif "academia" in name_lower or "musculação" in name_lower:
+        return "/Imagens-tetos/geradas/academia-musculacao.png"
     # 23. Quarto de Hotel / UH
     elif "hotel" in name_lower or "uh" in name_lower or ("reforma" in name_lower and "quarto" in name_lower):
         return "/Imagens-tetos/geradas/quarto-hotel.png"
