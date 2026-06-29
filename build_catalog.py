@@ -197,9 +197,9 @@ def get_project_image(name, category_title):
     # 7. Forro PVC
     elif "pvc" in name_lower and any(k in name_lower for k in ["forro", "teto"]):
         return "/Imagens-tetos/geradas/forro-pvc.png"
-    # 8. Divisoria Vidro
-    elif "vidro" in name_lower and "divisória" in name_lower:
-        return "/Imagens-tetos/geradas/divisoria-vidro.png"
+    # Isoforro / Modular
+    elif "isoforro" in name_lower or "modular" in name_lower:
+        return "/Imagens-tetos/geradas/isoforro.png"
     # Parede Curva
     elif "curva" in name_lower or "irregular" in name_lower:
         return "/Imagens-tetos/geradas/parede-curva.png"
