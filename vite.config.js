@@ -11,7 +11,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        catalogo: resolve(__dirname, 'catalogo.html')
+        catalogo: resolve(__dirname, 'catalogo.html'),
+        saude: resolve(__dirname, 'saude.html'),
+        acustica: resolve(__dirname, 'acustica.html')
       }
     }
   }
