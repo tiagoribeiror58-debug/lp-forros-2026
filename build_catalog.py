@@ -6,7 +6,7 @@ html_template = """<!DOCTYPE html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ideias de Projetos | MF Prime Acabamentos</title>
-  <meta name="description" content="Catálogo completo de projetos residenciais e comerciais em PVC, Drywall e Divisórias da MF Prime Acabamentos.">
+  <meta name="description" content="Catálogo completo de projetos residenciais e comerciais em Drywall e Divisórias da MF Prime Acabamentos.">
 
   <!-- TODO: troque a URL base abaixo pelo seu domínio próprio quando tiver -->
   <link rel="canonical" href="https://lp-forros-2026.vercel.app/catalogo">
@@ -21,7 +21,7 @@ html_template = """<!DOCTYPE html>
   <meta property="og:locale" content="pt_BR">
   <meta property="og:site_name" content="MF Prime Acabamentos">
   <meta property="og:title" content="Ideias de Projetos | MF Prime Acabamentos">
-  <meta property="og:description" content="Forros, divisórias e revestimentos para projetos residenciais e comerciais (B2B).">
+  <meta property="og:description" content="Forros, divisórias e revestimentos para projetos residenciais e comerciais.">
   <meta property="og:url" content="https://lp-forros-2026.vercel.app/catalogo">
   <meta property="og:image" content="https://lp-forros-2026.vercel.app/Imagens-tetos/projeto-4.jpeg">
   <meta property="og:image:alt" content="Projeto de teto instalado pela MF Prime Acabamentos">
@@ -29,7 +29,7 @@ html_template = """<!DOCTYPE html>
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Ideias de Projetos | MF Prime Acabamentos">
-  <meta name="twitter:description" content="Forros, divisórias e revestimentos para projetos residenciais e comerciais (B2B).">
+  <meta name="twitter:description" content="Forros, divisórias e revestimentos para projetos residenciais e comerciais.">
   <meta name="twitter:image" content="https://lp-forros-2026.vercel.app/Imagens-tetos/projeto-4.jpeg">
 
   <link rel="stylesheet" href="/src/css/main.css">
@@ -60,7 +60,7 @@ html_template = """<!DOCTYPE html>
       <div class="hero-content" style="text-align: center; max-width: 800px; margin: 0 auto;">
         <span class="hero-tagline">Soluções Completas</span>
         <h1 class="hero-title">Ideias de Projetos</h1>
-        <p class="hero-desc lead">Inspire-se com ideias e referências de forros, divisórias e revestimentos para projetos residenciais e comerciais (B2B).</p>
+        <p class="hero-desc lead">Inspire-se com ideias e referências de forros, divisórias e revestimentos para projetos residenciais e comerciais.</p>
       </div>
     </div>
   </section>
@@ -69,8 +69,8 @@ html_template = """<!DOCTYPE html>
     <div class="container">
       <!-- Tabs -->
       <div class="catalog-tabs">
-        <button class="catalog-tab-btn active" data-target="tab-pf">Residencial (PF)</button>
-        <button class="catalog-tab-btn" data-target="tab-b2b">Comercial (B2B)</button>
+        <button class="catalog-tab-btn active" data-target="tab-pf">Residencial</button>
+        <button class="catalog-tab-btn" data-target="tab-b2b">Comercial</button>
         <button class="catalog-tab-btn" data-target="tab-servicos">Serviços Extras</button>
       </div>
 
@@ -239,6 +239,9 @@ def get_project_image(name, category_title):
     elif "podcast" in name_lower or "gravação" in name_lower or "estúdio" in name_lower:
         return "/Imagens-tetos/geradas/estudio-podcast.png"
     
+    # Banheiro Seco
+    elif "banheiro seco" in name_lower:
+        return "/Imagens-tetos/geradas/banheiro-seco.png"
     # Banheiros
     elif any(k in name_lower for k in ["banheiro", "lavabo", "úmida"]):
         return "/Imagens-tetos/geradas/banheiro-pvc.png"
