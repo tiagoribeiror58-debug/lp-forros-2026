@@ -1314,3 +1314,68 @@ footer {
   0% { transform: translateX(0); }
   100% { transform: translateX(calc(-50% - 8px)); }
 }
+
+/* --- ADAPTIVE UI: VERTICAIS (SAÚDE E ACÚSTICA) --- */
+
+/* TEMA SAÚDE: Mais clean, confiável, foco em branco e sutil azul médico, sem perder a identidade */
+body.theme-saude {
+  --bg-light: #f4f8fb; /* Levemente azulado para limpeza */
+  --bg-dark: #1f2937;
+  /* Mantemos o primary (bronze) para botões principais para preservar o Design System */
+}
+body.theme-saude .hero {
+  background: linear-gradient(135deg, #ffffff 0%, #e0f2fe 100%);
+}
+body.theme-saude .hero-title,
+body.theme-saude .hero-desc,
+body.theme-saude .hero-tagline {
+  color: #0f172a;
+}
+body.theme-saude .hero-tagline {
+  background: rgba(14, 165, 233, 0.1);
+  color: #0284c7;
+  border-color: rgba(14, 165, 233, 0.2);
+}
+
+/* TEMA ACÚSTICA: Dark Mode sutil, "clima de estúdio", foca e aumenta contraste */
+body.theme-acustica {
+  /* Substituímos as cores de fundo claro por escuro, e escuro por mais escuro */
+  --bg-white: #18181b;
+  --bg-light: #27272a;
+  --text-dark: #f8fafc;
+  --text-medium: #cbd5e1;
+  --text-light: #94a3b8;
+  --border-light: #3f3f46;
+  --border-dark: #52525b;
+}
+body.theme-acustica .hero {
+  background: linear-gradient(135deg, #09090b 0%, #18181b 100%);
+}
+body.theme-acustica .hero-title,
+body.theme-acustica .hero-desc {
+  color: #f8fafc;
+}
+body.theme-acustica .hero-tagline {
+  background: rgba(168, 102, 46, 0.1); /* Bronze do logo */
+  color: var(--primary);
+  border-color: var(--primary);
+}
+body.theme-acustica .section-dark {
+  background-color: #000000;
+}
+body.theme-acustica .catalog-card,
+body.theme-acustica .calc-step,
+body.theme-acustica .test-card,
+body.theme-acustica .hero-badge {
+  background: var(--bg-light);
+  border: 1px solid var(--border-light);
+}
+body.theme-acustica .filter-btn {
+  color: var(--text-dark);
+}
+body.theme-acustica .calc-option {
+  background-color: transparent;
+}
+body.theme-acustica .calc-option:hover {
+  background-color: rgba(168, 102, 46, 0.05);
+}

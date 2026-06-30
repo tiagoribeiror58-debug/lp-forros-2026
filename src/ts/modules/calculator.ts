@@ -85,7 +85,14 @@ export function initCalculator(): void {
         materialText += `\n- *Ideia/Detalhes do projeto:* ${customDetailsInput.value.trim()}`;
       }
 
-      const message = `${CONFIG.whatsappGreeting}
+      let greeting = CONFIG.whatsappGreeting;
+      if (document.body.classList.contains('theme-saude')) {
+        greeting = 'Olá, vim pela página de Saúde e quero cotar para minha clínica.';
+      } else if (document.body.classList.contains('theme-acustica')) {
+        greeting = 'Olá, vim pela página de Acústica e preciso de isolamento acústico/térmico.';
+      }
+
+      const message = `${greeting}
 
 *Detalhes do meu projeto:*
 - *Acabamento:* ${materialText}
