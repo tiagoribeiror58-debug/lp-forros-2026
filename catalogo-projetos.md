@@ -105,6 +105,8 @@
 | Sala de esterilização | Revestimento de alta resistência e fácil higienização |
 | Clínica estética — sala de procedimento | Drywall + PVC lavável + iluminação técnica embutida |
 | Farmácia ou laboratório | Divisórias modulares + revestimento resistente + forro mineral |
+| Forro Modular (Isoforro Lavável) | Placas modulares de EPS (Isopor), ideal para higienização e manutenção em clínicas e hospitais |
+| Parede Divisória Hospitalar | Parede em Drywall resistente e de fácil limpeza, excelente para criar novos leitos e salas de triagem |
 
 ---
 
@@ -132,6 +134,8 @@
 | Estúdio de podcast / gravação | Tratamento acústico total — drywall multicamada + manta + forro |
 | Sala de cinema corporativo | Forro rebaixado + drywall acústico + iluminação indireta + painel |
 | Brinquedoteca / área kids | Drywall com revestimento colorido lavável + nichos + forro PVC |
+| Divisória e Parede Acústica | Separação total de som entre salas, essencial para salas de rádio, podcast e gravação |
+| Teto Amadeirado Acústico | Forro premium que mescla madeira e tratamento de som, garantindo excelente visual com retenção sonora |
 
 ---
 
