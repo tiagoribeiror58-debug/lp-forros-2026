@@ -1005,13 +1005,14 @@ footer {
 
 .footer-brand p {
   max-width: 320px;
+  color: #a1a1aa;
 }
 
 .footer-links-title {
   font-family: var(--font-title);
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--bg-white);
+  color: #ffffff;
   margin-bottom: var(--space-sm);
 }
 
@@ -1024,12 +1025,12 @@ footer {
 
 .footer-links a {
   font-size: 0.85rem;
-  color: var(--text-light);
+  color: #a1a1aa;
   transition: var(--transition-fast);
 }
 
 .footer-links a:hover {
-  color: var(--bg-white);
+  color: #ffffff;
 }
 
 .footer-bottom {
@@ -1040,7 +1041,7 @@ footer {
   align-items: center;
   flex-wrap: wrap;
   gap: var(--space-sm);
-  color: var(--text-light);
+  color: #a1a1aa;
   font-size: 0.75rem;
 }
 

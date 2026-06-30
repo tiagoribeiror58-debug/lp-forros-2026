@@ -7,6 +7,7 @@ import { initGallery } from './modules/gallery.js';
 import { initLightbox } from './modules/lightbox.js';
 import { initCalculator } from './modules/calculator.js';
 import { initCatalogTabs } from './modules/catalog.js';
+import { initCatalogFilter } from './modules/catalogFilter.js';
 
 import '../css/main.css';
 
@@ -17,4 +18,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initGallery();
   initCalculator();
   initCatalogTabs();
+  initCatalogFilter();
 });
