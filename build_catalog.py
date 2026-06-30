@@ -60,7 +60,7 @@ html_template = """<!DOCTYPE html>
       <div class="hero-content" style="text-align: center; max-width: 800px; margin: 0 auto;">
         <span class="hero-tagline">Soluções Completas</span>
         <h1 class="hero-title">Ideias de Projetos</h1>
-        <p class="hero-desc lead">Navegue pelas nossas opções de forros, divisórias e revestimentos para projetos residenciais e comerciais (B2B).</p>
+        <p class="hero-desc lead">Inspire-se com ideias e referências de forros, divisórias e revestimentos para projetos residenciais e comerciais (B2B).</p>
       </div>
     </div>
   </section>
@@ -151,7 +151,7 @@ def get_project_image(name, category_title):
     elif "pergolado" in name_lower:
         return "/Imagens-tetos/geradas/pergolado-pvc.png"
     # Porta de Correr Embutida
-    elif "porta" in name_lower or "correr" in name_lower or "embutida" in name_lower:
+    elif "porta de correr" in name_lower or "porta" in name_lower:
         return "/Imagens-tetos/geradas/porta-embutida.png"
     # Cabeceira
     elif "cabeceira" in name_lower:
